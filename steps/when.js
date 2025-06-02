@@ -7,15 +7,18 @@ const login = new LoginPage();
 const checkboxes = new CheckboxesPage();
 
 When('I login with {string} and {string}', async (username, password) => {
-    await login.inputUsername.setValue(username);
-    await login.inputPassword.setValue(password);
-    await login.btnSubmit.click();
+    try {
+        await login.login(username, password);
+    } catch (error) {
+        console.error('Erro no login:', error);
+        throw error;
+    }
 });
 
 When('I checked the first checkbox', async () => {
-    await checkboxes.checkbox1.click();
+    await checkboxes.checkboxes[0].click();
 });
 
 When('I unchecked the second checkbox', async () => {
-    await checkboxes.checkbox2.click();
+    await checkboxes.checkboxes[1].click();
 });

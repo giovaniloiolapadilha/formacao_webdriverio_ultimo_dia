@@ -18,9 +18,9 @@ Then('should show the title Checkboxes', async () => {
 });
 
 Then('the first checkbox should be checked', async () => {
-    await expect(checkboxes.checkbox1).toBeChecked();
+    await expect(checkboxes.checkboxes[0]).toBeChecked();
 });
 
 Then('second checkbox should be unchecked', async () => {
-    await expect(checkboxes.checkbox1).not.toBeChecked();
+    await expect(checkboxes.checkboxes[1]).not.toBeChecked();
 });
